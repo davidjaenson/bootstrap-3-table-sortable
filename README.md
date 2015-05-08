@@ -2,7 +2,7 @@
 A very simple table sorting plugin for bootstrap 3 (requires glyphicons and JQuery)
 
 
-To use simply include the script and add the table-sortable class to your table.
+To use simply include the script and add the table-sortable class to the tables you want to be sortable.
 
 If you wish to disable the sorting of certain columns add the data-table-sortable-disable attribute to that column's header cell (the th-tag).
 
