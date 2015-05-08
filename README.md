@@ -1,6 +1,8 @@
 # bootstrap3-table-sorter
 A very simple table sorting plugin for bootstrap 3 (requires glyphicons and JQuery)
 
+[Example](http://davidjaenson.github.io/table-sortable/)
+
 
 To use simply include the script and add the table-sortable class to the tables you want to be sortable.
 
