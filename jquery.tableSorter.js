@@ -4,6 +4,13 @@
 */
 
 (function($) {
+
+    var sortFunctions = {
+        string: function(a, b) { return a < b; },
+        date: function(a, b) { return Date.parse(a) < Date.parse(b); },
+        number: function(a, b) { return parseFloat(a) < parseFloat(b); }
+    };
+
     var tableSort = function(table, index, order, sortFunction) {
         sortFunction = sortFunction || function(a, b) { return a < b; };
         var elements = [];
@@ -60,7 +67,9 @@
                     $(this).children('.glyphicon').addClass('glyphicon-sort-by-attributes-alt');
                 }
 
-                tableSort($(this).parent().parent().parent(), $(this).index(), newOrder);
+                var sortType = $(this).attr('data-table-sortable-type');
+
+                tableSort($(this).parent().parent().parent(), $(this).index(), newOrder, sortFunctions[sortType]);
 
                 $(this).attr('data-table-sortable-order', newOrder);
             }).append('&nbsp;<span class="glyphicon glyphicon-sort table-sortable-icon"></span>');
