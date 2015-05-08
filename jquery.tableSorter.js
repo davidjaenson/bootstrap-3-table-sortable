@@ -30,8 +30,8 @@
         var tr;
         if(table.children("thead").length > 0) {
             tr = $(table).find('tbody > tr');
-        // we need to handle the case when people use badly formatted html
         } else {
+            // we need to handle the case when people use badly formatted html
             tr = $(table).find('tr:not(:first)');
         }
 
@@ -39,11 +39,9 @@
             elements.push(this);
         });
 
-        //tr.remove();
-        tbody.html('');
-
+        tr.remove();
+        
         elements.sort(function(a, b) {
-            //console.log(a, b, order);
             a = $(a).children('td:eq(' + index + ')');
             b = $(b).children('td:eq(' + index + ')');
             var r = sortFunction(a.text().toLowerCase(), b.text().toLowerCase());
@@ -53,9 +51,6 @@
                 return -1*r;
             }
         });
-
-        //console.log(elements);
-
         for(var i = 0; i < elements.length; ++i) {
             $(tbody).append(elements[i]);
         }
