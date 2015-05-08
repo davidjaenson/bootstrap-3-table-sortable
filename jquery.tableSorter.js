@@ -16,7 +16,7 @@
             }
         },
         date: function(a, b) {
-            return Date.parse(a) > Date.parse(b);
+            return Date.parse(a) - Date.parse(b);
         },
         number: function(a, b) {
             return parseFloat(a) - parseFloat(b);
