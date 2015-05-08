@@ -6,13 +6,25 @@
 (function($) {
 
     var sortFunctions = {
-        string: function(a, b) { return a < b; },
-        date: function(a, b) { return Date.parse(a) < Date.parse(b); },
-        number: function(a, b) { return parseFloat(a) < parseFloat(b); }
+        string: function(a, b) {
+            if(a < b) {
+                return -1;
+            } else if(a === b) {
+                return 0;
+            } else {
+                return 1;
+            }
+        },
+        date: function(a, b) {
+            return Date.parse(a) > Date.parse(b);
+        },
+        number: function(a, b) {
+            return parseFloat(a) - parseFloat(b);
+        }
     };
 
     var tableSort = function(table, index, order, sortFunction) {
-        sortFunction = sortFunction || function(a, b) { return a < b; };
+        sortFunction = sortFunction || sortFunctions.string;
         var elements = [];
         var tbody = table.find('tbody') || table;
         var tr;
@@ -27,17 +39,23 @@
             elements.push(this);
         });
 
-        tr.remove();
+        //tr.remove();
+        tbody.html('');
 
         elements.sort(function(a, b) {
+            //console.log(a, b, order);
             a = $(a).children('td:eq(' + index + ')');
             b = $(b).children('td:eq(' + index + ')');
-            if(order !== 'asc') {
-                return sortFunction(a.text(), b.text());
+            var r = sortFunction(a.text(), b.text());
+            console.log(a.text(), b.text(), r, order);
+            if(order === 'asc') {
+                return r;
             } else {
-                return !sortFunction(a.text(), b.text());
+                return -1*r;
             }
         });
+
+        //console.log(elements);
 
         for(var i = 0; i < elements.length; ++i) {
             $(tbody).append(elements[i]);
