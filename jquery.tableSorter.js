@@ -46,8 +46,7 @@
             //console.log(a, b, order);
             a = $(a).children('td:eq(' + index + ')');
             b = $(b).children('td:eq(' + index + ')');
-            var r = sortFunction(a.text(), b.text());
-            console.log(a.text(), b.text(), r, order);
+            var r = sortFunction(a.text().toLowerCase(), b.text().toLowerCase());
             if(order === 'asc') {
                 return r;
             } else {
