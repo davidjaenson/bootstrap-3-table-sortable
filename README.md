@@ -5,7 +5,7 @@ A very simple plugin to make tables sortable for bootstrap 3 (requires glyphicon
 
 To use simply include the script and add the table-sortable class to the tables you want to be sortable.
 
-By default the sorting is done in lexicographic case-insensitive order for all columns. To change the sorting type use the data-table-sortable-disable attribute in that column's header cell (the th-tag).
+By default the sorting is done in lexicographic case-insensitive order for all columns. To change the sorting type use the data-table-sortable-type attribute in that column's header cell (the th-tag).
 
 For example:
 ```html
