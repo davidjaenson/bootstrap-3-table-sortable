@@ -5,6 +5,7 @@ A very simple table sorting plugin for bootstrap 3 (requires glyphicons and JQue
 To use simply include the script and add the table-sortable class to your table.
 
 If you wish to disable the sorting of certain columns add the data-table-sortable-disable attribute to that column's header cell (the th-tag).
+
 For example:
 ```html
 <table class="table-sortable">
@@ -26,4 +27,10 @@ For example:
         </tr>
     </tbody>
 </table>
+```
+
+
+If you wish to set a table as sortable via Javascript, simply do the following:
+```js
+$("table i want to make sortable").tableSortable();
 ```
