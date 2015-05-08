@@ -12,7 +12,7 @@ For example:
 <table class="table-sortable">
     <thead>
         <tr>
-            <!-- We disable sorting by id-->
+            <!-- We set the id's sorting type to "number" -->
             <th data-table-sortable-type="number">#id</th>
             <th>Name</th>
         </tr>
